@@ -1,7 +1,5 @@
 require 'selenium-webdriver'
-require 'rspec/expectations'
 
-include RSpec::Matchers
 
 class SeleniumQaToolsForm
 
@@ -24,7 +22,7 @@ class SeleniumQaToolsForm
   end
 
   def get_first_name_text
-    puts @chrome_driver.find_element(:name, FIRST_NAME_FIELD_NAME)['value']
+    @chrome_driver.find_element(:name, FIRST_NAME_FIELD_NAME)['value']
   end
 
   def input_lastname_field(text)
@@ -32,7 +30,7 @@ class SeleniumQaToolsForm
   end
 
   def get_last_name_text
-    puts @chrome_driver.find_element(:name, LAST_NAME_FIELD_NAME)['value']
+    @chrome_driver.find_element(:name, LAST_NAME_FIELD_NAME)['value']
   end
 
   def cilck_radio_button_male
@@ -45,52 +43,42 @@ class SeleniumQaToolsForm
 
   def click_years_of_experiance_one
     @chrome_driver.find_element(:id, 'exp-0').click
-    sleep 1
   end
 
   def click_years_of_experiance_two
     @chrome_driver.find_element(:id, 'exp-1').click
-    sleep 1
   end
 
   def click_years_of_experiance_three
     @chrome_driver.find_element(:id, 'exp-2').click
-    sleep 1
   end
 
   def click_years_of_experiance_four
     @chrome_driver.find_element(:id, 'exp-3').click
-    sleep 1
   end
 
   def click_years_of_experiance_five
     @chrome_driver.find_element(:id, 'exp-4').click
-    sleep 1
   end
 
   def click_years_of_experiance_six
     @chrome_driver.find_element(:id, 'exp-5').click
-    sleep 1
   end
 
   def click_years_of_experiance_seven
     @chrome_driver.find_element(:id, 'exp-6').click
-    sleep 1
   end
 
   def select_generate_date(text)
     @chrome_driver.find_element(:id, 'datepicker').send_keys(text)
-    sleep 1
   end
 
   def select_profession_checkbox_manual_tester
     @chrome_driver.find_element(:id, 'profession-0').click
-    sleep 1
   end
 
   def select_profession_checkbox_auto_tester
     @chrome_driver.find_element(:id, 'profession-1').click
-    sleep 1
   end
 
   # def click_on_a_link
@@ -99,37 +87,26 @@ class SeleniumQaToolsForm
 
   def select_auto_tool_checkbox_qtp
     @chrome_driver.find_element(:id, 'tool-0').click
-    sleep 1
   end
 
   def select_auto_tool_checkbox_ied
     @chrome_driver.find_element(:id, 'tool-1').click
-    sleep 2
   end
 
   def select_auto_tool_checkbox_webdriver
     @chrome_driver.find_element(:id, 'tool-2').click
-    sleep 2
   end
 
   def dropdown_list_element
     dropdown_list = @chrome_driver.find_element(id: 'continents')
     options = dropdown_list.find_elements(tag_name: 'option')
     options.each { |option| option.click if option.text == 'Australia' }
-
-    selected_option = options.map { |option| option.text if option.selected? }.join
-    expect(selected_option).to eql 'Australia'
-    sleep 3
   end
 
   def select_element_from_list
     list = @chrome_driver.find_element(id: 'selenium_commands')
     options = list.find_elements(tag_name: 'option')
     options.each { |option| option.click if option.text == 'Navigation Commands' }
-
-    selected_option = options.map { |option| option.text if option.selected? }.join
-    expect(selected_option).to eql 'Navigation Commands'
-    sleep 3
   end
 
 end
