@@ -22,46 +22,56 @@ I have created three different classes to test three different processes.
 
 ## Home page test / bbc_homepeage.rb
 
-### Given:
-use the capybara method visit to call the URL for the bbc.co.uk web site
+#### Given:
+user is in the homepage
 
-### When:
-use the capybara method find to find the sign-in link and then the method click press on the link  
+### When:  
+I click press on the link  
 
 ### Then:
 it should takes us to the register page
 
 ## Register page test / bbc_sign_in_page.rb
 
+### scenario:
+incorrect username and password inputs are placed in the register page  
+
 ### Given:
-That we automate navigation to the bbc.co.uk signin page
+user is in the sign-in page  
 
 ### When:
- we use the capybara fill_in method to pass a incorrect username and a password
-
- then use the click_button method to click on the submit form button
+an incorrect username and an incorrect password is passed as input
+### And:
+we click on the submit form button
 
 ### Then:
 then the page should respond with the correct and appropriate error message
 
+### scenario:
+no input is given into the username and passwords fields of the register page
+
 ### Given:
-That we automate navigation to the bbc.co.uk signin page
+we are in the sign-in page
 
 ### When:
  we do not enter any details into the username and password input boxes
 
- then use the click_button method to click on the submit form button
+### And:
+and click on the submit button
 
 ### Then:
 then the page should respond with the correct and appropriate error message
 
+### scenario:
+
 ### Given:
-That we automate navigation to the bbc.co.uk signin page
+user is in the sign-in page
 
 ### When:
- we enter details that are too short
+ we enter details that are too short into the username and password fields
 
- then use the click_button method to click on the submit form button
+###And:
+click submit button
 
 ### Then:
 then the page should respond with the correct and appropriate error message for inputs that are too short
@@ -70,18 +80,18 @@ then the page should respond with the correct and appropriate error message for 
 # Register page test / account.bbc.com/register'
 
 ### Given:
-That we automate navigation to the bbc.co.uk register page
+user is in the register pafge
 
 ### When:
-when we use the click_link method to click on the under 13 href link
+when user clicks under 13 button
 
 ### Then
-It should take us to the enter guardians details parent control page
+we should be at the parent control page sign-in page
 
 # Register underage test / account.bbc.com/register/details/guardian
 
 ### Given:
-we are at in the guardian sighin in page after the
+we are at in the guardian sigh-in in page after the
 
 ### When:
 we use the capybara fill_in method to enter an incorrect parent email and the use the click_button method to click on the submit button
